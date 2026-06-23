@@ -97,3 +97,7 @@ To set up your production infrastructure, run `agents-cli infra cicd`.
 ## Observability
 
 Built-in telemetry exports to Cloud Trace, BigQuery, and Cloud Logging.
+
+## Demo Script
+
+A detailed narration script for presenting this project is available at [DEMO_SCRIPT.txt](./DEMO_SCRIPT.txt).

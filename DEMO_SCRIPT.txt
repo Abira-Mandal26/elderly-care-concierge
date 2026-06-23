@@ -1,0 +1,37 @@
+[0:00 - HOOK]
+Managing health as we age is stressful, and keeping track of complex daily medication schedules alongside multiple doctor appointments can quickly become overwhelming for both seniors and their caregivers. (pause) That is why we built the Elderly Care Concierge—a secure, intelligent AI assistant designed to simplify healthcare management and offer peace of mind through a warm, reassuring conversational interface.
+
+[0:20 - WHAT IT IS]
+The Elderly Care Concierge belongs to the healthcare track of our agent project ecosystem. It operates as a personal digital coordinator that manages daily medication schedules, logs medicine intake records, and helps organize doctor appointments. By translating technical healthcare details into simple natural language, it empowers elderly users to take control of their health.
+
+[0:40 - SHOW THE BANNER]
+(show assets/cover_page_banner.png)
+As you can see on the project banner, the Elderly Care Concierge combines secure, intelligent, and verifiable eldercare coordination. Our design focuses on keeping the interaction human-centric, combining direct medication logs, doctor schedules, and caregiver approval gates.
+
+[1:00 - ARCHITECTURE]
+(show assets/architecture_diagram.png)
+Let's take a look at the system architecture. (pause)
+When a user submits a query, it first goes through the Security Checkpoint node. This is a critical pre-processing layer that scrubs sensitive PII, blocks prompt injections, and acts as a dosage guardrail, preventing unauthorized changes to restricted medications like insulin.
+If the input is safe, the workflow routes to the Orchestrator Agent. The orchestrator is the central coordinator of our system. It analyzes the user request and dynamically delegates tasks to two specialized sub-agents: the Medication Agent, which tracks daily prescriptions, and the Doctor Visit Coordinator, which manages scheduling.
+Both sub-agents connect to a local Model Context Protocol, or MCP, server to securely retrieve or write database records.
+If a doctor visit is proposed, the orchestrator routes the flow to a Human-in-the-Loop approval gate node, which pauses execution to confirm the booking before generating the final response.
+
+[2:00 - LIVE DEMO]
+(switch to playground at localhost:18081)
+Now, let's see a live demonstration of how this works in practice.
+First, we will ask the assistant: "What medications am I taking?"
+(pause)
+As the query goes in, the security checkpoint passes it, the orchestrator delegates to the Medication Agent, and the agent calls the local MCP server to fetch the list. The assistant responds with a warm message listing our active prescriptions: Metformin, Lisinopril, and Atorvastatin.
+Next, let's log an intake: "I just took my Lisinopril."
+(pause)
+The Medication Agent invokes the log intake tool on the MCP server, and confirms that the dose has been successfully recorded.
+Finally, let's request a checkup: "Schedule a checkup appointment with Dr. Smith next Friday at 2:00 PM."
+(pause)
+Because this is a critical action, the workflow triggers the Human-in-the-Loop node. The interface halts and shows a confirmation prompt asking us to reply 'yes' or 'no'. Once we reply 'yes', the appointment is officially scheduled and logged in our system.
+
+[3:00 - SECURITY & MCP]
+Security is our top priority. Our Security Checkpoint operates entirely on the local system, scrubbing SSNs, credit card details, and medical records before they ever reach the language model. Additionally, we enforce strict guards on restricted drugs: any attempt to modify high-risk dosages is immediately blocked with a warning.
+On the integration side, the Model Context Protocol server connects our agents directly to local state databases, exposing custom tools for medication querying, intake logging, and calendar appointments securely.
+
+[3:30 - IMPACT / CLOSE]
+By combining specialized AI agents with a local MCP backend and strict security checkpoint guardrails, the Elderly Care Concierge turns complex health management into a safe and simple conversation. It improves medication adherence, reduces booking friction, and provides caregivers with a verifiable audit log. Thank you.
