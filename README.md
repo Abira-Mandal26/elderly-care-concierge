@@ -1,4 +1,9 @@
+![Elderly Care Concierge Banner](./docs/images/elderly_care_concierge_banner.png)
+
 # elderly-care-concierge
+
+## Workflow Architecture Diagram
+![Workflow Architecture Diagram](./docs/images/workflow_architecture_diagram.png)
 
 An intelligent, multi-agent conversational assistant designed to help seniors and caregivers manage daily eldercare routines. The concierge acts as a unified portal for tracking medications, logging pill intakes, and coordinating doctor visits, built using the Google Agent Development Kit (ADK) and Model Context Protocol (MCP).
 
