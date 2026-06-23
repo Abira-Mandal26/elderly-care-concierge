@@ -1,4 +1,4 @@
-![Elderly Care Concierge Banner](./docs/images/elderly_care_concierge_banner.png)
+![Elderly Care Concierge Banner](./assets/cover_page_banner.png)
 
 # Elderly Care Concierge - Submission Writeup
 
@@ -19,7 +19,7 @@ The primary objective of the **Elderly Care Concierge** is to reduce cognitive l
 
 The application is built on top of the **Google Agent Development Kit (ADK)** using a multi-agent workflow architecture.
 
-![Workflow Architecture Diagram](./docs/images/workflow_architecture_diagram.png)
+![Workflow Architecture Diagram](./assets/architecture_diagram.png)
 
 ```mermaid
 graph TD
